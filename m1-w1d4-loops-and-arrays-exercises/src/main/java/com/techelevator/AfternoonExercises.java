@@ -10,7 +10,14 @@ public class AfternoonExercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		return false;
+		
+		//int [] array = new int [nums.length];
+		
+		if (nums[0]==6 || nums[nums.length-1]==6){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/*
@@ -21,7 +28,14 @@ public class AfternoonExercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		return false;
+		int numTest=nums.length;
+		
+		if ( numTest >= 1 && (nums[0]==nums[nums.length-1]) ){
+				return true;
+		} else { 
+			return false;
+		}
+	
 	}
 
 	/*
@@ -29,7 +43,7 @@ public class AfternoonExercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+		return new int[] {3, 1, 4};
 	}
 
 	/*
@@ -40,7 +54,12 @@ public class AfternoonExercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+	
+		if ( (a[0]==b[0]) || (a[a.length-1]==b[b.length-1]) ){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/*
