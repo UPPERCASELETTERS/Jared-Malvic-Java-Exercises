@@ -69,7 +69,9 @@ public class AfternoonExercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
+		int sum=0;
+		sum= nums[0]+nums[1]+nums[2];
+		return sum;
 	}
 
 	/*
@@ -80,7 +82,12 @@ public class AfternoonExercises {
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+		int [] newnums;
+		newnums=new int[3];
+		newnums[0]=nums[1];
+		newnums[1]=nums[2];
+		newnums[2]=nums[0];
+		return newnums;
 	}
 
 	/*
@@ -91,7 +98,12 @@ public class AfternoonExercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
-		return new int[] {};
+		int [] newNums;
+		newNums = new int[3];
+		newNums[0]=nums[2];
+		newNums[1]=nums[1];
+		newNums[2]=nums[0];
+		return newNums;
 	}
 
 	/*
@@ -102,7 +114,23 @@ public class AfternoonExercises {
 	 maxEnd3([2, 11, 3]) → [3, 3, 3]
 	 */
 	public int[] maxEnd3(int[] nums) {
-		return new int[] {};
+		//I originally read the problem wrong and inserted unnecessary code but I am keepin' it.
+		if (/*nums[0] > nums[1] &&*/ nums[0] > nums[2]){			
+			nums[0]=nums[0];
+			nums[1]=nums[0];
+			nums[2]=nums[0];
+		} 
+		/*if (nums[1] > nums[2] && nums[1] > nums[0]){			
+			nums[0]=nums[1];
+			nums[1]=nums[1];
+			nums[2]=nums[1];
+		} */
+		if (/*nums[2] > nums[1] &&*/ nums[2] > nums[0]){			
+			nums[0]=nums[2];
+			nums[1]=nums[2];
+			nums[2]=nums[2];
+		}			
+		return nums;
 	}
 
 	/*
@@ -113,7 +141,18 @@ public class AfternoonExercises {
 	 sum2([1, 1, 1, 1]) → 2
 	 */
 	public int sum2(int[] nums) {
-		return 0;
+		int sum = 0;
+		boolean twoOrLess;
+		twoOrLess=(nums.length<=2);
+		
+		if (twoOrLess){
+			return nums[0]+nums[nums.length-1];
+		}
+		
+		for(int i = 0; i < 2; i++){
+			sum = sum + nums[i];
+		} 
+		return sum;
 	}
 
 	/*
@@ -124,8 +163,11 @@ public class AfternoonExercises {
 	 middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
 	 */
 	public int[] middleWay(int[] a, int[] b) {
-		return new int[] {};
-	}
+		int [] newArray= new int [2];
+		newArray[0]= a[1];
+		newArray[1]= b[1];
+		return newArray;
+	} 
 
 	/*
 	 Return the number of even ints in the given array. Note: the % "mod" operator computes the 
@@ -135,7 +177,13 @@ public class AfternoonExercises {
 	 countEvens([1, 3, 5]) → 0
 	 */
 	public int countEvens(int[] nums) {
-		return 0;
+		int counter=0;
+		
+		for(int i = 0; i < nums.length; i++) {
+			if (nums[i] % 2 == 0){
+				counter+=1;
+			}
+		} return counter;
 	}
 
 	/*
@@ -147,17 +195,34 @@ public class AfternoonExercises {
 	 sum13([1, 2, 2, 1, 13]) → 6
 	 */
 	public int sum13(int[] nums) {
-		return 0;
-	}
+		int sum=0;
+		
+		for(int i = 0; i < nums.length; i++) {
+			if (nums[i]==13){
+				return sum;
+			}
+			sum += nums[i];
+				
+		} return sum;
+	} 
 
 	/*
 	 Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
 	 has22([1, 2, 2]) → true
 	 has22([1, 2, 1, 2]) → false
 	 has22([2, 1, 2]) → false
+	 
+	 
+ *************I AM STUCK I AM ON THIS ONE!**************
+	
 	 */
 	public boolean has22(int[] nums) {
-		return false;
+		
+		for (int i = 0; i < nums.length-1; i++) {
+			if ( nums[i]==2 && nums[i]==nums[i+1] ) { 
+				return true;
+			}
+		} return false;
 	}
 	
 	/*
@@ -167,7 +232,12 @@ public class AfternoonExercises {
 	 lucky13([1, 2, 4]) → false
 	 */
 	public boolean lucky13(int[] nums) {
-		return false;
+		
+		for (int i = 0; i < nums.length; i++) {
+			if ( nums[i]==1 || nums[i]==3 ) { 
+				return false;
+			}
+		} return true;
 	}
 
 	/*
@@ -177,7 +247,17 @@ public class AfternoonExercises {
 	 sum28([1, 2, 3, 4]) → false
 	 */
 	public boolean sum28(int[] nums) {
-		return false;
+		int sum=0;
+		boolean isTrue=false;
+		
+		for (int i = 0; i < nums.length; i++) {			
+			if ( nums[i]==2 ) { 
+				sum+=nums[i];
+			} 
+		}  
+		if (sum==8){
+			isTrue=true;
+		}
+		return isTrue;		
 	}
-
 }
