@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Scanner;
+
 /*
  The Fahrenheit to Celsius conversion formula is:
  	Tc = (Tf - 32) / 1.8
@@ -22,7 +24,28 @@ package com.techelevator;
 public class TempConvert {
 
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Please enter the temperature value excluding the units. (Example: 58) Enter here: " );
+		
+		double temp = input.nextDouble();
+		input.nextLine();
+		
+		System.out.print( "Please enter your temperature's units in C for celsius or F for Fahrenheit: ");
+		
+		String tempType = input.nextLine();
+		
+		System.out.println( temp + " " + tempType + " converted is about " + tempConvert (temp, tempType)+ (tempType.startsWith("c") ? " degrees Fahrenheit" : " degrees Celcius"));
+		
 
 	}
-
+	public static double tempConvert (double temp, String tempType) {
+		if (tempType.toLowerCase().startsWith("c")) {
+			double tF = (temp * 1.8) + 32;
+			return ((int)(Math.round(tF)));
+		} else { 
+			double tC = (temp - 32) / 1.8;
+			return ((int)(Math.round(tC)));
+		}
+	}
 }
