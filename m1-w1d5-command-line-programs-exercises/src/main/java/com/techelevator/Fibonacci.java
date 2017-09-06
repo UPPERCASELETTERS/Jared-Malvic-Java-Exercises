@@ -26,20 +26,23 @@ public class Fibonacci {
 		int number = input.nextInt();
 		input.nextLine();
 		
-		System.out.println( toFibonacci (number) );
+		toFibonacci (number);
 		
 	}
 
 	
-	public static int toFibonacci (int number ){
- 
- 	if (number == 0){
- 		return 0;
- 	} else if (number == 1 ) {
- 		return 1;
- 	} else { 
- 		return toFibonacci(number - 1) + toFibonacci(number - 2);
- 	}
+	public static int toFibonacci (int number){
+		int first = 0;
+		System.out.print("0");
+ 		 		
+ 		for (int second=1; second < number; ) {
+ 			System.out.print(", " + second);
+ 			int temp = first + second;
+ 			first = second;
+ 			second = temp;
+ 			
+ 		} return number;
+ 	
 	}
  		
 }
