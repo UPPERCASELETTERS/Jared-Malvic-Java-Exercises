@@ -54,6 +54,7 @@ public class Exercises {
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
 		List<String> theList = new ArrayList<String>();
+		
 		for (int i=0; i < stringArray.length; i++){
 			if (stringArray[i].length() != 4) {
 				theList.add(stringArray[i]);
@@ -128,7 +129,16 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		boolean isFound = false;
+		
+		for (Integer number : integerList) {
+			if (number == intToFind) {
+				if (isFound) {
+					return true;
+				} 
+				isFound = true;
+			}
+		} return false;
 	}
 	
 	/*
@@ -144,7 +154,23 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString() equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> theList = new ArrayList<>();
+		
+		//for (int i = 0; i < integerArray.length; i++) {
+			//theList.add(integerArray[i]);
+						
+		for (Integer number : integerArray) {
+			if (number % 3 == 0 && number % 5 == 0) {
+				theList.add("FizzBuzz");
+			} else if (number % 5 == 0) {
+				theList.add("Buzz");
+			} else if (number % 3 == 0) {
+				theList.add("Fizz");
+			} else {
+				theList.add(number.toString());
+			}
+		} return theList;
+	
 	}
 
 	/*
@@ -154,8 +180,16 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		
+		Set<String> noDupes = new HashSet<String>();
+		noDupes.addAll(stringList);
+		
+		List<String> noDupesList = new ArrayList<>();
+		noDupesList.addAll(noDupes);
+		
+		return noDupesList;
 	}
+	
 
 	/*
 	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
