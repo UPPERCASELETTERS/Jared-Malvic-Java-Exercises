@@ -309,7 +309,12 @@ public class Exercises {
 	 countXX("xxxx") → 
 	 */
 	public int countXX(String str) {
-		return 0;
+		int count = 0;
+		for (int i=0; i<str.length()-1; i++){
+			if (str.substring(i, i+2).equals("xx")) {
+				count++;
+			}
+		} return count;
 	}
 
 	/*
@@ -319,12 +324,16 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
-		int check = str.indexOf("x");
-				
-		if (check == check+1) {
-			System.out.print(check);
-			return true;
-		} return false;
+		
+		for (int i=0; i<str.length()-1; i++){
+			if (str.charAt(i)== 'x') 
+				if (str.charAt(i+1)=='x') {
+					return true;
+		} else {				
+			return false;
+			}
+		}
+		return false;
 	}
 
 	/*
@@ -334,7 +343,11 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String everyOther = "";
+		
+		for (int i=0; i<str.length(); i+=2){
+			everyOther+=str.substring(i, i+1);
+		} return everyOther;
 	}
 
 	/*
@@ -344,7 +357,11 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String compiled = "";
+		
+		for (int i=0; i<str.length(); i++){
+			compiled+=str.substring(0, i+1);
+		} return compiled;
 	}
 
 	/*
@@ -355,7 +372,12 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		int count = 0;
+		for (int i=0; i<str.length()-2; i++){
+			if (str.substring(i, i+2).equals(str.substring(str.length()-2,str.length()))) {
+				count++;
+			}
+		} return count;
 	}
 
 	/*
@@ -366,7 +388,12 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		if (str.length()<=1) {
+			return str;
+		}	
+		
+		String xEnds= str.substring(0, 1) + str.substring(1,str.length()-1).replace("x", "") + str.substring(str.length()-1);
+		return xEnds;
 	}
 
 	/*
@@ -387,7 +414,7 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		return str.replace("yak", "");
 	}
 	
 }

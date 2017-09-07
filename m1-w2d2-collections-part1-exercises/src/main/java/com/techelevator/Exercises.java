@@ -22,7 +22,11 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"] 
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> theList = new ArrayList<String>();
+		for (int i=0; i < stringArray.length; i++){
+			theList.add(i, stringArray[i]);
+			
+		} return theList;
 	}
 	
 	/*
@@ -32,8 +36,14 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
-	}
+		String[]array=new String[stringList.size()];
+		
+		for (int i=0; i < stringList.size(); i++) {
+			String temp=stringList.get(i);
+			array[i]=temp;
+		}
+		return array;
+	} 
 	
 	/*
 	 Given an array of Strings, return an ArrayList containing the same Strings in the same order 
@@ -43,7 +53,12 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> theList = new ArrayList<String>();
+		for (int i=0; i < stringArray.length; i++){
+			if (stringArray[i].length() != 4) {
+				theList.add(stringArray[i]);
+				}
+			} return theList;
 	}
 
 
@@ -56,7 +71,13 @@ public class Exercises {
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
 	public List<String> reverseList(List<String> stringList) {
-		return null;
+		List<String> reversed = new ArrayList<String>();
+		Stack<String> pile = new Stack<String>();
+		pile.addAll(stringList);
+		
+		while ( ! pile.isEmpty()) {
+			reversed.add(pile.pop());
+		} return reversed;
 	}
 
 	/*
@@ -66,7 +87,12 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> divided2 = new ArrayList<Double>();
+		
+		for (int i=0; i < intArray.length; i++){
+			divided2.add(i, ((double) intArray[i])/2);
+			
+		} return divided2;
 	}
 	
 	/*
@@ -76,7 +102,7 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		return Collections.max(integerList);
 	}
 	
 	/*
@@ -86,7 +112,12 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> theList = new ArrayList<Integer>();
+		for (int i=0; i < integerArray.length; i++){
+			if (integerArray[i] % 2 != 0) {
+				theList.add(integerArray[i]);
+			} 
+		} return theList;
 	}
 	
 	/* 
