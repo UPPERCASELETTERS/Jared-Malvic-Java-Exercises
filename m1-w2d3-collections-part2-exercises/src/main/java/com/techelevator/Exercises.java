@@ -1,6 +1,8 @@
 package com.techelevator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -128,17 +130,15 @@ public class Exercises {
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
 		int petersMoney = peterPaul.get("Peter");
 		int paulsMoney = peterPaul.get("Paul");
-		int halfPaul = (paulsMoney / 2);
-		int halfPeter = (petersMoney / 2);			
-		int partner =  halfPaul + halfPeter;
-		Map<String, Integer> peterPaulPartner = new HashMap<>();	
-		
-		if (paulsMoney > 5000 && petersMoney > 10000) {
-			paulsMoney -= partner;
-			petersMoney -= partner;
-			peterPaul.put("Paul", paulsMoney);
-			peterPaul.put("Peter", petersMoney);
-			peterPaulPartner.put("PeterPaulPartnership", partner);
+				
+		if (paulsMoney >= 10000 && petersMoney >= 5000) {
+			int newPaul = (paulsMoney / 4);
+			int newPeter = (petersMoney / 4);
+			int partner =  newPaul + newPeter;
+			
+			peterPaul.put("Paul", paulsMoney-newPaul);
+			peterPaul.put("Peter", petersMoney-newPeter);
+			peterPaul.put("PeterPaulPartnership", partner);
 		} return peterPaul;
 	} 
 	
@@ -151,7 +151,16 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		List<String> bAE = new ArrayList<>();
+		Map<String,String> bAEMap=new HashMap<>();
+		
+		for (int i = 0; i < words.length; i++) {
+			bAE.add(words[i]);
+		}
+		
+		for (String word : bAE) {
+			bAEMap.put( word.substring(0, 1) , (word.substring(word.length()-1,word.length())) );
+		} return bAEMap;
 	}
 	
 	/*
@@ -193,7 +202,17 @@ public class Exercises {
 	 * 
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> counts = new HashMap<>();
+			
+		for(Integer number : ints) {
+			if(counts.containsKey(number)){
+				int currentCount = counts.get(number);
+				currentCount++;
+				counts.put(number, currentCount);
+			} else {
+					counts.put(number, 1);
+			}
+		} return counts;					
 	}
 	
 	/*
