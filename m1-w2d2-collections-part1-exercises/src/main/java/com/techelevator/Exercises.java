@@ -199,7 +199,13 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> woven = new ArrayList<>();
+		int minLength = Math.min(listOne.size(), listTwo.size());
+		
+		for(int i = 0; i < minLength; i++){
+			woven.add(listOne.get(i));
+			woven.add(listTwo.get(i));
+		} return woven;
 	}
 
 	/*
@@ -212,7 +218,25 @@ public class Exercises {
 	 boardingGate( [0, -1, 44, 31, 17, 7, 27, 16, 26, 6] ) -> [7, 6, 17, 16, 27, 26]
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
-		return null;
+		Queue<Integer> queue = new LinkedList<Integer>();
+		List<Integer> seated = new ArrayList<>();
+		queue.addAll(seatNumberList);
+		
+		for (Integer number : queue) {
+			if (number >= 1 && number <= 10) {
+				seated.add(number);
+			}
+		}
+		for (Integer number : queue) {
+			if (number >= 11 && number <=20) {
+				seated.add(number);
+			}
+		}
+		for (Integer number : queue) {
+			if (number >= 21 && number <= 30) {
+				seated.add(number);
+			}
+		} return seated;
 	}
 
 }
