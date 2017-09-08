@@ -126,8 +126,21 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
-	}
+		int petersMoney = peterPaul.get("Peter");
+		int paulsMoney = peterPaul.get("Paul");
+		int halfPaul = (paulsMoney / 2);
+		int halfPeter = (petersMoney / 2);			
+		int partner =  halfPaul + halfPeter;
+		Map<String, Integer> peterPaulPartner = new HashMap<>();	
+		
+		if (paulsMoney > 5000 && petersMoney > 10000) {
+			paulsMoney -= partner;
+			petersMoney -= partner;
+			peterPaul.put("Paul", paulsMoney);
+			peterPaul.put("Peter", petersMoney);
+			peterPaulPartner.put("PeterPaulPartnership", partner);
+		} return peterPaul;
+	} 
 	
 	/*
 	 * Given an array of non-empty strings, return a Map<String, String> where for every different string in the array, 
