@@ -225,7 +225,15 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> inFact = new HashMap<>();
+		
+		for (String x : words) {
+			if(inFact.containsKey(x)) {
+			inFact.put(x, true);
+			} else {
+			inFact.put(x, false);
+			}
+		}return inFact;
 	}
 	
 	/*
@@ -258,6 +266,17 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> last2Revisted(String[] words) {
-		return null;
-	}
+		Map<String, Integer> count = new HashMap <>();
+		
+		for (String word: words) {
+			String lastTwo = word.substring(word.length()-2);
+			int times = 0;
+			for(int i = 0; i < word.length()-2; i++) {
+				if (word.substring(i, i + 2).equals(lastTwo)) {
+					times++;
+				}
+			} count.put(word, times);
+		} 
+		return count;
+	} 
 }
