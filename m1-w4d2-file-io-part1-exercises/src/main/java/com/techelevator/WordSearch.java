@@ -12,8 +12,6 @@ public class WordSearch {
 		String inputWord = getInputWord(); 
 		boolean caseSensitive = isCaseSensitive();
 		searchWord(inputWord, inputFile, caseSensitive);
-	
-
 	}
 	
 
