@@ -86,3 +86,19 @@ INSERT INTO project_employee (project_id, employee_id) VALUES (8,5);
 INSERT INTO project_employee (project_id, employee_id) VALUES (8,6);
 INSERT INTO project_employee (project_id, employee_id) VALUES (8,7);
 INSERT INTO project_employee (project_id, employee_id) VALUES (8,8);
+
+
+SELECT * FROM site WHERE campground_id = ? AND site_id NOT IN (SELECT site_id FROM site s JOIN reservation r ON s.site_id = r.site_id WHERE campground_id =? AND (to_date BETWEEN ? AND ? OR from_date BETWEEN ? AND ? OR (from_date <= ? AND to_date >= ?)))
+
+
+ FROM PARK WHERE (SELECT * FROM campground WHERE (SELECT * FROM 
+ 
+SELECT site_id FROM site s JOIN campground c ON s.campground_id = c.campground_id
+JOIN park p ON c.park_id = p.park_id WHERE p.park_id=1 AND c.campground_id=1 AND s.site_number=5 
+
+INSERT INTO reservation SET (site_id, name, from_date, to_date, create_date RETURNING reservation_id
+
+
+DELETE FROM reservation WHERE reservation_id=50;
+
+Select site_id FROM reservation WHERE site_id = 46 AND to_date BETWEEN '2017-11-09' AND '2017-11-14' OR from_date BETWEEN '2017-11-09' AND '2017-11-14'
