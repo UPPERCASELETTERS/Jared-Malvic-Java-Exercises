@@ -1,28 +1,36 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="pageTitle" value="List View"/>
+<%@ include file="common/header.jspf" %>
 
-<!DOCTYPE html>
+       <div class="flexContainerList">
+		<c:forEach items="${products}" var="product">
+			<div class="listLine">
+				<div class="listImage">
+					<c:url var="productLink" value="productDetail?productId=${product.productId }"/>
+					<a href="${productLink}"><img src="img/${product.imageName}" class="productListImage"/></a>
+					
+				</div>
+				
+				<div id="listDetails">	
+						<br><br><br><br><strong><a href="${productLink}"><c:out value="${product.name}" /></a></strong> 
+							<br>by <c:out value="${product.manufacturer}" />
+							<br><div class="quantity">
+								<c:if test="${product.remainingStock < 5}">
+									<div class="quantity"><c:out value="Only ${product.remainingStock} Left!" /></div>
+								</c:if>
+							</div>
+						
+						<div class="price">$<c:out value="${product.price}" /></div>
+						<c:if test="${product.topSeller == true}">
+         			<div class ="bestSeller"><c:out value="BEST SELLER!"/></div></c:if>
+						<br><strong>Weight </strong><c:out value="${product.weightInLbs}"/> lbs
+							<br><fmt:formatNumber value="${product.averageRating}"
+								maxFractionDigits="0" var="formattedRating" />
+							<img src="img/${formattedRating}-star.png" class="rating" />
+				</div>
+			</div>
+		</c:forEach>
+	</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Product List View</title>
-    <link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-        </ul>
-        
-    </nav>
-    <section id="main-content">
-
-       
-
-    </section>
-</body>
-</html>
+<%@ include file="common/footer.jspf" %>
