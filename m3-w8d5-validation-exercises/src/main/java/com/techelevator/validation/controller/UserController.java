@@ -39,10 +39,16 @@ public class UserController {
 			RedirectAttributes flash) {
 		
 		flash.addFlashAttribute("register", register);
+		if( !(register.getEmail() == register.getEmailConfirm()) || !(register.getPassword() == register.getPasswordConfirm()) ) {
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "register", result);
+			return "redirect:/register";
+		}
 		
 		if(result.hasErrors()) {
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "register", result);
 			return "redirect:/register";
+			
+		
 		}
 		return "redirect:/thanks";
 	}
